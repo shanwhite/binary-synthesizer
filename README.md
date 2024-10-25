@@ -1,7 +1,11 @@
-# binary-synthesizer
+# Binary Synthesizer
 
-## HELLO WORLD
+## Our Project
+Our program takes in a text file, converts it from digital (binary) to analog (sound), and outputs the sound based on the binary patterns of the text file.
 
-## BRANCH TEST
+## Inspiration
+[Tristan Perich's 1-Bit Symphony](https://tristanperich.bandcamp.com/album/1-bit-symphony)
+[Bytebeats](https://greggman.com/downloads/examples/html5bytebeat/html5bytebeat.html)
 
-## TEST AGAIN
+## UI Design
+to be added
