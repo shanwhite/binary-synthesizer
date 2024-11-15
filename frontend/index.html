@@ -3,13 +3,31 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-
-    <title>Read File</title>
+    <meta name="viewport" content="width=device-width, 
+                 initial-scale=1.0">
+    <title>Read File in Browser</title>
 </head>
-<body>
-    <input type="file" id="fileInput" title="fileTake">
 
-    <script src="scripts.js"></script>
+<body>
+    <input type="file" id="fileInput" title="takeInput"/>
+    <script>
+        document.getElementById('fileInput')
+            .addEventListener('change', (event) => {
+                const file = event.target.files[0];
+                const reader = new FileReader();
+
+                reader.onload = function () {
+                    const content = reader.result;
+                    console.log(content);
+                };
+
+                reader.onerror = function () {
+                    console.error('Error reading the file');
+                };
+
+                reader.readAsText(file, 'utf-8');
+            });
+    </script>
 </body>
+
 </html>
