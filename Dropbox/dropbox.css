@@ -1,0 +1,222 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* default style for everything */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* the background */
+body{
+    /* background-color: #c9d6ff; */
+    /* background: linear-gradient(to right, #e2e2e2, #c9d6ff);  */
+    margin: 0;
+    padding: 0;
+    height: 100%;       /* Sets body height to fill the viewport */
+    width: 100%; 
+    overflow-x: hidden;
+    display: flex; /*enables flexbox */
+    align-items: center; /*centers content vertically*/
+    justify-content: center; /*center contents horizontally */
+
+}
+
+/* the contents */
+.upload
+{
+    position: relative;
+    /* top: 70px; */
+    height: 600px;
+    width: 680px;
+    left: 200px;
+    transform: scale(0.72);
+    /* border: 2px solid green;   */
+}
+
+.web
+{
+    position: relative; 
+    top:-1060px;
+    left: 810px;
+    font-size: 38px;
+}
+.upload
+{
+    position: relative;
+    margin-top: 35px;
+    height: 600px;
+    width: 700px;
+    left: 65px;
+    /* border: 2px solid green;   */
+}
+h4
+{
+    padding:20px;
+}
+
+.create-box
+{
+    position: relative;
+    display:flex;
+    position:relative;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    width: 320px; 
+    height: 60px; 
+    background: linear-gradient(to right, #6876c6e6, #522da8e4);
+    /* border: 2px solid green; */
+}
+
+.create-box:hover
+{
+    background: #270479; 
+}
+
+.create
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+    width: 200px; 
+    height: 50px; 
+    /* left: 65px; */
+    top: 5px;
+    border-radius: 20px;
+    border:1px solid white;
+    transform: scale(0.85);
+}
+
+/* PORTS DESIGN */
+.ports
+{
+    position: relative;
+    top: -1030px;
+    left: 780px;
+    width: 380px;
+    height: 500px;
+    /* border: 2px solid green; */
+    border-radius: 10px;
+    /* THE SCROLLBAR */
+    border: 2px dashed #656464;
+    overflow: scroll;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    transition: background .2s ease-in-out;
+}
+
+.ports:hover {
+    background: #dfdddd7e;
+    border-color: #0e0b0b;
+}
+
+/* ALL THE BUTTONS */
+.container button{
+    color: #fff;
+    font-size: 12px;
+    padding: 10px 25px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+}
+
+.post
+{
+    background-color: #512da8;
+    position: relative; 
+    top: 180px;
+    left: 0px; 
+    transform: scale(1.4);
+}
+
+.post:hover
+{
+    background: #270479; 
+}
+
+/*BASED ON A TUTORIAL*/
+/*Choose file design*/
+input[type=file] {
+  width: 350px;
+  max-width: 100%;
+  color: #fff;
+  padding: 5px;
+  background: linear-gradient(to right, #5c6bc0, #522da8);
+  border-radius: 10px;
+  border: 1px solid #fff;
+}
+
+input[type=file]::file-selector-button {
+    margin-right: 20px;
+    border:1px solid white;
+    background: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+}
+input[type=file]::file-selector-button:hover {
+  background: #27047998;
+}
+
+
+/* drop files container */
+.drop-container {
+    position: relative;
+    display: flex;
+    gap: 10px; /* bottom space*/
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 30px;
+    height: 410px;
+    /* width: 620px; */
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px dashed #656464;
+    color: #444;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background .2s ease-in-out, border .2s ease-in-out;
+    /* border: 2px solid green; */
+}
+
+/* hover feature for dotted line */
+/* .drop-container:hover {
+    background: #e9e6e6;
+    border-color: #0e0b0b;
+} */
+
+/* hover feature for the container itself */
+/* .drop-container:hover .drop-title {
+    color: #222;
+} */
+
+.drop-title {
+    color: #000000;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    /* transition: color .2s ease-in-out; */
+}
+
+/* .drop-container.drag-active {
+    background: #eee;
+    border-color: #111;
+}
+
+.drop-container.drag-active .drop-title {
+    color: #222;
+} */
+
+
+

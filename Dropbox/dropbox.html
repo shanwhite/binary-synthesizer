@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Dashboard</title>
+       <!-- START OF INTERNAL CSS CODE -->
+       <link rel="stylesheet" href="dropbox.css">
+</head>
+<body>
+    <!-- Main container -->
+    <div class="container main">
+        <!-- Upload container -->
+        <div class="file-upload">
+            <form class = "upload">
+
+                <label for="file" class="drop-container" id="dropcontainer">
+                    <span class="drop-title">Drop files here</span>or
+                <!-- <input id="file" name="file" type="file" required/> -->
+                <input type="file" id="folderInput" name="files" webkitdirectory directory multiple required><br><br>
+
+                <!-- UPLOAD BUTTON -->
+                <button type="submit" class="post">Upload</button>
+            </form>
+      <script src="scripts.js"></script>
+    <!-- </div> -->
+</body>
+</html>

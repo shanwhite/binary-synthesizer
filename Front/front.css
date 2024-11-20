@@ -1,0 +1,35 @@
+.Wrapper
+{
+    background: pink; 
+    width: 700px;
+    height: 750px; 
+    position: relative; 
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+
+}
+
+body
+{
+    position: relative; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+
+
+}
+
+.Screen
+{
+    width: 550px;
+    height: 500px; 
+    border-radius: 2%;
+    background: grey; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
