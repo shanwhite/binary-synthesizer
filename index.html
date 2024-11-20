@@ -4,14 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Read File in Browser</title>
+    <title>Binary Synthesizer</title>
 </head>
 
 <body>
     <input type="file" id="fileInput" title="fileInput"/>
-    <button onclick="convert();">Convert!</button>
-    <input id="fileOutput" title="output"/>
+    <textarea id="output" title="output" rows="10" cols="50" readonly></textarea>
+    <button id="playAudio">Play Audio</button>
     <script src="scripts.js"></script>
 </body>
 
