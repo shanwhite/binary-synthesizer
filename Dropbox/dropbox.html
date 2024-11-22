@@ -1,54 +1,31 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FileUpload</title>
-    <link rel="stylesheet" href="dropbox.css" />
-  </head>
-  <body>
-    <div class="Wrapper">
-      <!-- Indicator -->
-      <div class="Container">
-        <div class="Light"></div>
-      </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Dashboard</title>
+       <!-- START OF INTERNAL CSS CODE -->
+       <link rel="stylesheet" href="dropbox.css">
+</head>
+<body>
+    <!-- Main container -->
+    <div class="container main">
+        <!-- Upload container -->
+        <div class="file-upload">
+            <form class = "upload">
 
-      <!-- What appears on the screen -->
-      <div class="Screen">
-        <div class="Message">No file is being played right now</div>
-      </div>
+                <label for="file" class="drop-container" id="dropcontainer">
+                    <span class="drop-title">Drop files here</span>or
+                <!-- <input id="file" name="file" type="file" required/> -->
+                <input type="file" id="folderInput" name="files" webkitdirectory directory multiple required><br><br>
 
-      <div class="Container_2">
-        <div class="Title">BINARY SYNTHESIZER</div>
-      </div>
-
-      <!-- Input button-->
-      <div class="Container_3">
-        <button class="Input">INPUT FILE</button>
-      </div>
-
-      <!-- Buttons -->
-      <div class="Button_container">
-        <div class="Play-container">
-          <!-- Play font -->
-          <div class="Play">PLAY</div>
-
-          <!-- Play button -->
-          <button class="Play-button">
-            <div class="Triangle"></div>
-          </button>
-        </div>
-
-        <div class="Stop-container">
-          <!-- Play font -->
-          <div class="Stop">STOP</div>
-
-          <!-- Play button -->
-          <button class="Stop-button">
-            <div class="Square"></div>
-          </button>
-        </div>
-      </div>
-    </div>
-  </body>
+                <!-- UPLOAD BUTTON -->
+                <button type="submit" class="post">Upload</button>
+            </form>
+      <script src="scripts.js"></script>
+    <!-- </div> -->
+</body>
 </html>
