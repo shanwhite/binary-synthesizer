@@ -29,42 +29,18 @@
           // Read the file as text
           reader.readAsText(file);
       });
-      
-      document.getElementById("playAudio").addEventListener("click", function () {
-          if (!window.binarySequence) {
-              alert("Please select and convert a file first!");
-              return;
-          }
-      
-          // Synthesize audio from binary sequence
-          playBinaryAudio(window.binarySequence);
-      });
-      
-      function playBinaryAudio(binarySequence) {
-          const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      
-          let time = audioCtx.currentTime; // Start time
-          const duration = 0.5; // Duration of each tone (seconds)
-      
-          binarySequence.forEach(bit => {
-              const oscillator = audioCtx.createOscillator();
-              const gainNode = audioCtx.createGain();
-      
-              // Map '0' and '1' to frequencies (880 Hz for '1', 220 Hz for '0')
-              const frequency = bit === "1" ? 880 : 220;
-              oscillator.frequency.setValueAtTime(frequency, time);
-      
-              // Set up oscillator
-              oscillator.type = "sine"; // Sine wave
-              oscillator.connect(gainNode);
-              gainNode.connect(audioCtx.destination);
-      
-              // Start and stop the oscillator
-              oscillator.start(time);
-              oscillator.stop(time + duration);
-      
-              // Increment time for the next tone
-              time += duration;
-          });
-      }
-      
+          document.getElementById("playAudio").addEventListener("click", function () {
+            // Ensure binarySequence is available
+            if (!window.binarySequence || window.binarySequence.length === 0) {
+                alert("No binary sequence available! Load a file first.");
+                return;
+            }
+        
+            const binaryArray = window.binarySequence; // Array of 8-bit binary strings
+            console.log(binaryArray);
+        
+            // Convert each binary string to a decimal number
+            const decimals = binaryArray.map(byte => parseInt(byte, 2));
+            console.log(decimals); // Outputs
+        });
+        
