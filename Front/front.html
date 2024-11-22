@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Front page</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="front.css" />
   </head>
   <body>
@@ -14,7 +14,7 @@
       </div>
 
       <!-- What appears on the screen -->
-      <div class="Screen">
+      <div class="Screen" id="output">
         <div class="Message">No file is being played right now</div>
       </div>
 
@@ -24,7 +24,7 @@
 
       <!-- Input button-->
       <div class="Container_3">
-        <button class="Input">INPUT FILE</button>
+        <button class="Input" id="fileInput">INPUT FILE</button>
       </div>
 
       <!-- Buttons -->
@@ -34,7 +34,7 @@
           <div class="Play">PLAY</div>
 
           <!-- Play button -->
-          <button class="Play-button">
+          <button class="Play-button" id="playAudio">
             <div class="Triangle"></div>
           </button>
         </div>
