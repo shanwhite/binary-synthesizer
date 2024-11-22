@@ -29,18 +29,34 @@
           // Read the file as text
           reader.readAsText(file);
       });
-          document.getElementById("playAudio").addEventListener("click", function () {
-            // Ensure binarySequence is available
+      document.getElementById("playAudio").addEventListener("click", async function () {
+        try {
+            // Ensure the AudioContext is resumed on user gesture
+            if (Tone.context.state !== "running") {
+                await Tone.start();
+                console.log("AudioContext started");
+            }
+    
             if (!window.binarySequence || window.binarySequence.length === 0) {
                 alert("No binary sequence available! Load a file first.");
                 return;
             }
-        
-            const binaryArray = window.binarySequence; // Array of 8-bit binary strings
-            console.log(binaryArray);
-        
-            // Convert each binary string to a decimal number
+    
+            const binaryArray = window.binarySequence;
             const decimals = binaryArray.map(byte => parseInt(byte, 2));
-            console.log(decimals); // Outputs
-        });
-        
+    
+            // Example audio synthesis using Tone.js
+            const synth = new Tone.Synth().toDestination();
+    
+            // Play a sequence of notes based on the decimal values
+            let time = 0;
+            decimals.forEach(value => {
+                const note = Tone.Frequency(value % 88 + 21, "midi").toNote(); // Map decimals to MIDI range
+                synth.triggerAttackRelease(note, "8n", Tone.now() + time);
+                time += 0.5; // Increment time for the next note
+            });
+        } catch (error) {
+            console.error("Error starting the AudioContext:", error);
+        }
+    });
+    
