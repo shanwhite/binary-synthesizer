@@ -4,13 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Binary Synthesizer</title>
 </head>
 
 <body>
     <input type="file" id="fileInput" title="fileInput"/>
-    <textarea id="output" title="output" rows="10" cols="50" readonly></textarea>
+    <textarea class ="outputBox" id="output" title="output" rows="10" cols="50" readonly></textarea>
     <button id="playAudio">Play Audio</button>
+    <button id="stopAudio">Stop Audio</button>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.39/Tone.min.js"></script>
     <script src="scripts.js"></script>
 </body>

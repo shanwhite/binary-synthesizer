@@ -29,9 +29,18 @@
           // Read the file as text
           reader.readAsText(file);
       });
-      document.getElementById("playAudio").addEventListener("click", async function () {
+      document.getElementById("stopAudio").addEventListener("click", function () {
         try {
-            // Ensure the AudioContext is resumed on user gesture
+            // Stop all currently scheduled or ongoing audio
+            Tone.Transport.stop();
+            console.log("Playback stopped");
+        } catch (error) {
+            console.error("Error stopping playback:", error);
+        }
+    });
+    
+    document.getElementById("playAudio").addEventListener("click", async function () {
+        try {
             if (Tone.context.state !== "running") {
                 await Tone.start();
                 console.log("AudioContext started");
@@ -45,18 +54,27 @@
             const binaryArray = window.binarySequence;
             const decimals = binaryArray.map(byte => parseInt(byte, 2));
     
-            // Example audio synthesis using Tone.js
+            //playback control
             const synth = new Tone.Synth().toDestination();
+            let index = 0;
     
-            // Play a sequence of notes based on the decimal values
-            let time = 0;
-            decimals.forEach(value => {
-                const note = Tone.Frequency(value % 88 + 21, "midi").toNote(); // Map decimals to MIDI range
-                synth.triggerAttackRelease(note, "8n", Tone.now() + time);
-                time += 0.5; // Increment time for the next note
-            });
+            // Create a Tone.Transport loop to play notes
+            Tone.Transport.scheduleRepeat(time => {
+                if (index < decimals.length) {
+                    const value = decimals[index];
+                    const note = Tone.Frequency(value % 88 + 21, "midi").toNote();
+                    synth.triggerAttackRelease(note, "8n", time);
+                    index++;
+                } else {
+                    Tone.Transport.stop(); // Stop Transport when done
+                }
+            }, "8n");
+    
+            // Start the transport
+            Tone.Transport.start();
         } catch (error) {
-            console.error("Error starting the AudioContext:", error);
+            console.error("Error starting playback:", error);
         }
     });
+    
     
