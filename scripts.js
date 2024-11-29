@@ -1,3 +1,4 @@
+          //FILE CONVERSION
           document.getElementById("fileInput").addEventListener("change", function () {
           const output = document.getElementById("output");
           output.value = "";
@@ -29,6 +30,8 @@
           // Read the file as text
           reader.readAsText(file);
       });
+
+      //STOP BUTTON
       document.getElementById("stopAudio").addEventListener("click", function () {
         try {
             // Stop all currently scheduled or ongoing audio
@@ -39,6 +42,8 @@
         }
     });
     
+
+    //PLAY AUDIO
     document.getElementById("playAudio").addEventListener("click", async function () {
         try {
             if (Tone.context.state !== "running") {
