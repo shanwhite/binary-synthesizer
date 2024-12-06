@@ -10,9 +10,11 @@
 
 <body>
     <input type="file" id="fileInput" title="fileInput"/>
-    <textarea class ="outputBox" id="output" title="output" rows="10" cols="50" readonly></textarea>
+    <div id="output" class="outputBox" style="white-space: pre-wrap; border: 1px solid #ccc; padding: 10px; height: 150px; overflow-y: auto;"></div>
     <button id="playAudio">Play Audio</button>
-    <button id="stopAudio">Stop Audio</button>
+    <button id="stopAudio">Pause</button>
+    <button id="changeTempo">Tempo: 8n</button>
+    <button id="changeWaveform">Waveform: sine</button>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.39/Tone.min.js"></script>
     <script src="scripts.js"></script>
 </body>
