@@ -41,7 +41,7 @@ document.getElementById("stopAudio").addEventListener("click", function () {
         if (Tone.Transport.state === "started") {
             // Pause the playback if it's running
             Tone.Transport.pause();
-            this.textContent = "Unpause";
+            this.textContent = "Resume";
             console.log("Playback paused");
         } else {
             // Resume the playback if it's paused
