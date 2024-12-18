@@ -141,6 +141,7 @@ body
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: row;
     gap: 5rem; 
 }
 
@@ -152,8 +153,6 @@ body
     display: flex;
     align-items: center;
     flex-direction: column;
-
-
 }
 
 /* Play font */
@@ -162,6 +161,7 @@ body
     position: relative; 
     font-size: 14px;
     color: rgb(186, 186, 186); 
+    margin-bottom: 4px;
 }
 
 /* Play button */
@@ -196,7 +196,6 @@ body
     display: flex;
     align-items: center; 
     flex-direction: column;
-
 }
 
 /* Stop font */
@@ -205,6 +204,7 @@ body
     position: relative; 
     font-size: 14px;
     color: rgb(186, 186, 186); 
+    margin-bottom: 4px;
 }
 
 /* Play button */
@@ -228,7 +228,65 @@ body
     background-color: rgb(186, 186, 186);
 }
 
+/* Tone stuff */
+.Tone-container
+{
+    bottom: 15px;
+  
+    /*  Contents displayed vertically */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 
+.Tone
+{
+    position: relative; 
+    font-size: 16px;
+    color: rgb(186, 186, 186); 
+    margin-bottom: 4px;
+}
 
+.Tone-button
+{ 
+    height: 25px;
+    width: 100px;
+    border-radius:5px;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    border: 2px solid rgb(186, 186, 186); 
+
+}
+
+/* Waveform stuff */
+.Waveform-container
+{
+    bottom: 15px;
+  
+    /*  Contents displayed vertically */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Waveform
+{
+    position: relative; 
+    font-size: 16px;
+    color: rgb(186, 186, 186); 
+    margin-bottom: 4px;
+}
+
+.Waveform-button
+{ 
+    height: 25px;
+    width: 120px;
+    border-radius:5px;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    border: 2px solid rgb(186, 186, 186); 
+}
 
 
