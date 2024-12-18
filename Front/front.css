@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap');
+body
+{
+    position: relative; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+
+    width: 100vw; /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+
+
+}
+
+/* Effects all HTML pages */
+* {
+    font-family: "Jura", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+}
+
+.Wrapper
+{
+    background: black;
+    width: 700px;
+    height: 750px; 
+    border-radius: 5%;
+    position: fixed; 
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+
+}
+
+.Screen
+{
+    position: relative;
+    bottom: 5%;
+    width: 540px;
+    height: 480px; 
+    border-radius: 3%;
+    background: rgb(49, 87, 255); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 10px solid rgb(0, 17, 198);
+    
+
+}
+
+.Message
+{
+    color: white; 
+}
+
+/* Container for lighr */
+.Container{
+
+    position: absolute;
+    top: 40px;
+    width: 550px;
+    height:40px; 
+    /* border-radius: 5%; */
+    /* background: yellowgreen;  */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.Light
+{
+    position: relative; 
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    background: rgb(197, 56, 56); 
+
+}
+
+/* Container for "BINARY SYNTHESISER" */
+.Container_2{
+
+    position: absolute;
+    bottom: 123px;
+    width: 550px;
+    height: 40px; 
+    /* border-radius: 5%; */
+    /* background: yellow;  */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.Title
+{
+    position: absolute; 
+    font-size:15px;
+    color: rgb(186, 186, 186); 
+    font-weight:700;
+
+}
+
+/* Container for Input file button */
+.Container_3
+{
+    position: absolute;
+    bottom: 83px;
+    width: 550px;
+    height: 40px; 
+    /* border-radius: 5%; */
+    /* background: rgb(205, 184, 50);  */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Input{
+    padding: 10px; 
+    width: 420px;
+    border: 2px solid rgb(130, 130, 130);
+    border-radius: 10px;
+    font-size:15px;
+    font-weight:700;
+    color: rgb(186, 186, 186); 
+
+
+}
+
+/* Container for play button and stop button*/
+.Button_container
+{
+    position: absolute;
+    bottom: 3px;
+    width: 550px;
+    height: 80px; 
+    /* border-radius: 5%; */
+    /* background: yellowgreen;  */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 5rem; 
+}
+
+.Play-container
+{
+    bottom: 15px;
+  
+    /*  Contents displayed vertically */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Play font */
+.Play
+{
+    position: relative; 
+    font-size: 14px;
+    color: rgb(186, 186, 186); 
+    margin-bottom: 4px;
+}
+
+/* Play button */
+.Play-button
+{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    border: 2px solid rgb(186, 186, 186); 
+
+}
+
+/* Triangle */
+.Triangle
+{
+    width: 0;
+	height: 0;
+    left: 10px;
+	border-top: 7px solid transparent;
+	border-left: 14px solid rgb(186, 186, 186);
+	border-bottom: 7px solid transparent;
+}
+
+.Stop-container
+{
+    bottom: 10px; 
+
+    /*  Contents displayed vertically */
+    display: flex;
+    align-items: center; 
+    flex-direction: column;
+}
+
+/* Stop font */
+.Stop
+{
+    position: relative; 
+    font-size: 14px;
+    color: rgb(186, 186, 186); 
+    margin-bottom: 4px;
+}
+
+/* Play button */
+.Stop-button
+{ 
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    border: 2px solid rgb(186, 186, 186); 
+
+}
+
+/* Triangle */
+.Square
+{
+    height: 12px;
+    width: 12px;
+    background-color: rgb(186, 186, 186);
+}
+
+/* Tone stuff */
+.Tone-container
+{
+    bottom: 15px;
+  
+    /*  Contents displayed vertically */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Tone
+{
+    position: relative; 
+    font-size: 16px;
+    color: rgb(186, 186, 186); 
+    margin-bottom: 4px;
+}
+
+.Tone-button
+{ 
+    height: 25px;
+    width: 100px;
+    border-radius:5px;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    border: 2px solid rgb(186, 186, 186); 
+
+}
+
+/* Waveform stuff */
+.Waveform-container
+{
+    bottom: 15px;
+  
+    /*  Contents displayed vertically */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Waveform
+{
+    position: relative; 
+    font-size: 16px;
+    color: rgb(186, 186, 186); 
+    margin-bottom: 4px;
+}
+
+.Waveform-button
+{ 
+    height: 25px;
+    width: 120px;
+    border-radius:5px;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    border: 2px solid rgb(186, 186, 186); 
+}
+
