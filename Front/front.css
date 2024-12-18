@@ -229,7 +229,7 @@ body
 }
 
 /* Tone stuff */
-.Tone-container
+.Tempo-container
 {
     bottom: 15px;
   
@@ -239,7 +239,7 @@ body
     flex-direction: column;
 }
 
-.Tone
+.Tempo
 {
     position: relative; 
     font-size: 16px;
@@ -247,7 +247,7 @@ body
     margin-bottom: 4px;
 }
 
-.Tone-button
+.Tempo-button
 { 
     height: 25px;
     width: 100px;
