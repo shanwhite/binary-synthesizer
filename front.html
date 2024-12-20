@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
+    <title>Binary Synthesizer</title>
     <link rel="stylesheet" href="front.css" />
   </head>
   <body>
@@ -22,50 +22,43 @@
         <div class="Title">BINARY SYNTHESIZER</div>
       </div>
 
-      <!-- Input button-->
+      <!-- File Input and Trigger Button -->
       <div class="Container_3">
-        <button class="Input" id="fileInput">INPUT FILE</button>
+        <input type="file" id="fileInput" style="display: none;" />
+        <button class="Input" id="fileInputButton">INPUT FILE</button>
       </div>
 
       <!-- Buttons -->
       <div class="Button_container">
+        <!-- Play Button -->
         <div class="Play-container">
-          <!-- Play font -->
           <div class="Play">PLAY</div>
-
-          <!-- Play button -->
-          <button class="Play-button" id="playAudio">
+          <button class="Play-button" id="playAudio" aria-label="Play">
             <div class="Triangle"></div>
           </button>
         </div>
 
+        <!-- Stop Button -->
         <div class="Stop-container">
-          <!-- Play font -->
           <div class="Stop">STOP</div>
-
-          <!-- Play button -->
-          <button class="Stop-button" id="stopAudio">
+          <button class="Stop-button" id="stopAudio" aria-label="Stop">
             <div class="Square"></div>
           </button>
         </div>
 
-        <!-- Tone stuff -->
+        <!-- Tempo Button -->
         <div class="Tempo-container">
-          <!-- Tone font -->
-          <div class="Tempo"> Tempo</div>
-          <!-- Tone button -->
-           <button class="Tempo-button" id="changeTempo">
-            <!-- the decor, idk what to put for tone -->
+          <div class="Tempo">Tempo</div>
+          <button class="Tempo-button" id="changeTempo">
             <div class="text-Tempo">8n</div>
-           </button>
+          </button>
         </div>
 
-        <!-- Waveform stuff -->
+        <!-- Waveform Button -->
         <div class="Waveform-container">
-          <div class="Waveform"> WAVEFORM</div>
+          <div class="Waveform">WAVEFORM</div>
           <button class="Waveform-button" id="changeWaveform">
-            <!-- the decor, idl what to put for waveform -->
-            <div class="text-Waveform"> sine</div>
+            <div class="text-Waveform">sine</div>
           </button>
         </div>
       </div>
@@ -73,6 +66,5 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.39/Tone.min.js"></script>
     <script src="scripts.js"></script>
-
   </body>
 </html>

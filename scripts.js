@@ -6,8 +6,15 @@ let currentWaveformIndex = 0;
 const noteTimings = ["8n", "16n", "4n", "2n"];
 let currentTimingIndex = 0;
 
+// Trigger file input when the button is clicked
+document.getElementById("fileInputButton").addEventListener("click", function () {
+    document.getElementById("fileInput").click();
+});
+
 document.getElementById("fileInput").addEventListener("change", function () {
     const output = document.getElementById("output");
+    const message = output.querySelector(".Message");
+    if (message) message.remove();
     output.innerHTML = ""; // Clear the output
 
     if (this.files.length === 0) {
@@ -23,14 +30,15 @@ document.getElementById("fileInput").addEventListener("change", function () {
 
         let binarySequence = "";
         for (let i = 0; i < content.length; i++) {
-            binarySequence += content[i].charCodeAt(0).toString(2).padStart(8, '0') + " ";
+            const byte = content[i].charCodeAt(0).toString(2).padStart(8, '0');
+            binarySequence += `<span>${byte}</span> `;
         }
 
-        // Display binary sequence as plain text initially
+        // Display binary sequence as span-wrapped text initially
         output.innerHTML = binarySequence.trim();
 
         // Store binary sequence for playback
-        window.binarySequence = binarySequence.trim().split(" ");
+        window.binarySequence = Array.from(output.querySelectorAll("span"));
     };
 
     reader.readAsText(file);
@@ -42,37 +50,34 @@ document.getElementById("stopAudio").addEventListener("click", function () {
             // Pause the playback if it's running
             Tone.Transport.pause();
             this.textContent = "Resume";
-            console.log("Playback paused");
         } else {
             // Resume the playback if it's paused
             Tone.Transport.start();
             this.textContent = "Pause";
-            console.log("Playback resumed");
         }
     } catch (error) {
         console.error("Error toggling playback state:", error);
     }
 });
 
-//tempo swap logic
+// Change Tempo
 document.getElementById("changeTempo").addEventListener("click", function () {
     currentTimingIndex = (currentTimingIndex + 1) % noteTimings.length;
     const currentTiming = noteTimings[currentTimingIndex];
-    this.textContent = `Tempo: ${currentTiming}`;
+    this.textContent = `${currentTiming}`;
 });
 
-//waveform swap logic
+// Change Waveform
 document.getElementById("changeWaveform").addEventListener("click", function () {
     currentWaveformIndex = (currentWaveformIndex + 1) % waveforms.length;
     const currentWaveform = waveforms[currentWaveformIndex];
-    this.textContent = `Waveform: ${currentWaveform}`;
+    this.textContent = `${currentWaveform}`;
 });
 
 document.getElementById("playAudio").addEventListener("click", async function () {
     try {
         if (Tone.context.state !== "running") {
             await Tone.start();
-            console.log("AudioContext started");
         }
 
         if (!window.binarySequence || window.binarySequence.length === 0) {
@@ -81,7 +86,7 @@ document.getElementById("playAudio").addEventListener("click", async function ()
         }
 
         const binaryArray = window.binarySequence;
-        const decimals = binaryArray.map(byte => parseInt(byte, 2));
+        const decimals = binaryArray.map(byte => parseInt(byte.textContent, 2)); // Convert binary to decimals
         const outputDiv = document.getElementById("output");
 
         // Reset the index to start from the beginning
@@ -108,10 +113,15 @@ document.getElementById("playAudio").addEventListener("click", async function ()
                 synth.triggerAttackRelease(note, currentTiming, time);
 
                 // Highlight the current bit in the output div
-                const highlightedOutput = binaryArray.map((bit, i) => {
-                    return i === index ? `<b>${bit}</b>` : bit;
-                }).join(" ");
-                outputDiv.innerHTML = highlightedOutput;
+                binaryArray.forEach((span, i) => {
+                    span.style.fontWeight = i === index ? "bold" : "normal"; // Bold current byte
+                });
+
+                // Scroll to the current byte if necessary
+                const currentSpan = binaryArray[index];
+                if (currentSpan) {
+                    currentSpan.scrollIntoView({ behavior: "smooth", block: "center" });
+                }
 
                 index++;
             } else {
