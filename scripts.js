@@ -141,7 +141,7 @@ document.getElementById("playAudio").addEventListener("click", async function ()
         // Start the transport
         Tone.Transport.start();
         document.querySelector('.Light').style.background = "#50c878";  // Change light color to green to indicate audio is playing
-        
+        document.getElementById("stopAudio").textContent = "Pause";
     } catch (error) {
         console.error("Error starting playback:", error);
     }
