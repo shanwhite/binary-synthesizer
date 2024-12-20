@@ -16,11 +16,13 @@ Download the code as a ZIP, then extract it and open the front.html file in a br
     Start Screen
 </p>
 <br />
+
 ![file inputted](readme-assets/file-inputted.png)
 <p align="center">
     Binary code displayed on the screen after inputting a file
 </p>
 <br />
+
 ![playing](readme-assets/playing.png)
 <p align="center">
     When playing through the code
