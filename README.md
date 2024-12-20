@@ -8,4 +8,6 @@ Our program takes in a text file, converts it from digital (binary) to analog (s
 [Bytebeats](https://greggman.com/downloads/examples/html5bytebeat/html5bytebeat.html)
 
 ## UI Design
-to be added
+![start screen](start-screen.png)
+![file inputted](file-inputted.png)
+![playing](playing.png)
