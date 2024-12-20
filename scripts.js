@@ -31,14 +31,14 @@ document.getElementById("fileInput").addEventListener("change", function () {
         let binarySequence = "";
         for (let i = 0; i < content.length; i++) {
             const byte = content[i].charCodeAt(0).toString(2).padStart(8, '0');
-            binarySequence += `<span>${byte}</span> `;
+            binarySequence += byte + " ";  // Add a space to separate bytes for wrapping
         }
 
-        // Display binary sequence as span-wrapped text initially
-        output.innerHTML = binarySequence.trim();
+        // Wrap the entire sequence in a <pre> tag to maintain formatting and allow wrapping
+        output.innerHTML = `<pre>${binarySequence}</pre>`;
 
         // Store binary sequence for playback
-        window.binarySequence = Array.from(output.querySelectorAll("span"));
+        window.binarySequence = binarySequence.split(' ');
     };
 
     reader.readAsText(file);
@@ -86,7 +86,7 @@ document.getElementById("playAudio").addEventListener("click", async function ()
         }
 
         const binaryArray = window.binarySequence;
-        const decimals = binaryArray.map(byte => parseInt(byte.textContent, 2)); // Convert binary to decimals
+        const decimals = binaryArray.map(byte => parseInt(byte, 2)); // Convert binary to decimals
         const outputDiv = document.getElementById("output");
 
         // Reset the index to start from the beginning
@@ -112,16 +112,19 @@ document.getElementById("playAudio").addEventListener("click", async function ()
                 const note = Tone.Frequency(value % 88 + 21, "midi").toNote();
                 synth.triggerAttackRelease(note, currentTiming, time);
 
-                // Highlight the current bit in the output div
-                binaryArray.forEach((span, i) => {
-                    span.style.fontWeight = i === index ? "bold" : "normal"; // Bold current byte
-                });
+                // Highlight the current bit by wrapping it in <span> with the 'current-bit' class
+                const bits = binaryArray[index].split('');
+                const highlightedBit = bits.map((bit, i) => {
+                    if (i === 0) {
+                        // Highlight the current bit (first one in this byte for simplicity)
+                        return `<span class="current-bit">${bit}</span>`;
+                    } else {
+                        return bit;
+                    }
+                }).join('');
 
-                // Scroll to the current byte if necessary
-                const currentSpan = binaryArray[index];
-                if (currentSpan) {
-                    currentSpan.scrollIntoView({ behavior: "smooth", block: "center" });
-                }
+                // Update the output to reflect the bold current bit
+                outputDiv.innerHTML = `<pre>${binaryArray.slice(0, index).join(' ')} ${highlightedBit} ${binaryArray.slice(index + 1).join(' ')}</pre>`;
 
                 index++;
             } else {

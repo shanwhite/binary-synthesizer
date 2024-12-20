@@ -39,18 +39,27 @@ body {
     align-items: flex-start;
     justify-content: flex-start;
     border: 10px solid rgb(0, 17, 198);
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow-y: auto;  /* Enable vertical scrolling */
     padding: 10px;
     box-sizing: border-box; 
     color: white;
-    word-wrap: break-word;
     font-size: 16px; /* Adjust font size */
     line-height: 1.5; /* Add spacing between lines */
+    max-height: 400px; /* Limit the height of the binary content */
 }
 
 .Message {
     color: white; 
+}
+
+/* For continuous flow of binary sequence */
+.Screen pre {
+    white-space: pre-wrap;  /* Allow text to wrap */
+    word-wrap: break-word;  /* Break long words (binary digits) to fit the width */
+    margin: 0;
+    font-family: monospace; /* Ensure proper alignment */
+    line-height: 1.4; /* Add a bit of spacing between lines */
+    word-break: break-word; /* Ensures the line breaks correctly */
 }
 
 /* Container for light */
@@ -241,4 +250,8 @@ body {
     align-items: center; 
     justify-content: center;
     border: 2px solid rgb(186, 186, 186); 
+}
+
+.current-bit {
+    font-weight: bold;
 }
