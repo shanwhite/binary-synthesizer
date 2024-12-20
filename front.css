@@ -10,7 +10,7 @@ body {
     height: 100vh; /* Full height of the viewport */
 }
 
-/* Effects all HTML pages */
+/* Affects all HTML pages */
 * {
     font-family: "Jura", sans-serif;
     font-optical-sizing: auto;
@@ -30,7 +30,7 @@ body {
 
 .Screen {
     position: relative;
-    bottom: 5%;
+    bottom: 8%; /* originally 5% */
     width: 540px;
     height: 480px; 
     border-radius: 3%;
@@ -75,8 +75,8 @@ body {
 
 .Light {
     position: relative; 
-    height: 6px;
-    width: 6px;
+    height: 10px;
+    width: 10px;
     border-radius: 50%;
     background: rgb(197, 56, 56); 
 }
@@ -84,7 +84,7 @@ body {
 /* Container for "BINARY SYNTHESISER" */
 .Container_2 {
     position: absolute;
-    bottom: 123px;
+    bottom: 163px; /* originally 123px */
     width: 550px;
     height: 40px; 
     display: flex;
@@ -102,7 +102,7 @@ body {
 /* Container for Input file button */
 .Container_3 {
     position: absolute;
-    bottom: 83px;
+    bottom: 123px; /* originally 83px */
     width: 550px;
     height: 40px; 
     display: flex;
@@ -123,7 +123,7 @@ body {
 /* Container for play button and stop button */
 .Button_container {
     position: absolute;
-    bottom: 3px;
+    bottom: 24px; /* originally 3px */
     width: 550px;
     height: 80px; 
     display: flex;
@@ -134,7 +134,7 @@ body {
 }
 
 .Play-container {
-    bottom: 15px;
+    bottom: 30px; /* originally 3px */
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -187,8 +187,8 @@ body {
 /* Stop button */
 .Stop-button { 
     height: 35px;
-    width: 35px;
-    border-radius: 50%;
+    width: 80px;
+    border-radius: 15px;
     display: flex;
     align-items: center; 
     justify-content: center;
@@ -212,14 +212,14 @@ body {
 
 .Tempo {
     position: relative; 
-    font-size: 16px;
+    font-size: 14px;
     color: rgb(186, 186, 186); 
     margin-bottom: 4px;
 }
 
 .Tempo-button { 
-    height: 25px;
-    width: 100px;
+    height: 35px;
+    width: 60px;
     border-radius: 5px;
     display: flex;
     align-items: center; 
@@ -237,14 +237,14 @@ body {
 
 .Waveform {
     position: relative; 
-    font-size: 16px;
+    font-size: 14px;
     color: rgb(186, 186, 186); 
     margin-bottom: 4px;
 }
 
 .Waveform-button { 
-    height: 25px;
-    width: 120px;
+    height: 35px;
+    width: 90px;
     border-radius: 5px;
     display: flex;
     align-items: center; 
@@ -252,6 +252,7 @@ body {
     border: 2px solid rgb(186, 186, 186); 
 }
 
-.current-bit {
+.current-bit, .current-byte {
     font-weight: bold;
+    color: rgb(255, 112, 103);
 }

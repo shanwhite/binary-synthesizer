@@ -3,7 +3,7 @@ const waveforms = ["sine", "square", "triangle", "sawtooth"];
 let currentWaveformIndex = 0;
 
 // Define available note timings and set the default
-const noteTimings = ["8n", "16n", "4n", "2n"];
+const noteTimings = ["8n", "16n", "2n", "4n"];
 let currentTimingIndex = 0;
 
 // Trigger file input when the button is clicked
@@ -122,8 +122,12 @@ document.getElementById("playAudio").addEventListener("click", async function ()
                         return bit;
                     }
                 }).join('');
+                
+                // Highlight the current byte
+                const highlightedByte = `<span class="current-byte">${bits.join('')}</span>`;
 
                 // Update the output to reflect the bold current bit
+                // Change ${highlightedBit} to ${highlightedByte} if you want to highlight the byte instead
                 outputDiv.innerHTML = `<pre>${binaryArray.slice(0, index).join(' ')} ${highlightedBit} ${binaryArray.slice(index + 1).join(' ')}</pre>`;
 
                 index++;
