@@ -49,10 +49,12 @@ document.getElementById("stopAudio").addEventListener("click", function () {
         if (Tone.Transport.state === "started") {
             // Pause the playback if it's running
             Tone.Transport.pause();
+            document.querySelector('.Light').style.background = ""; // Change light color to default
             this.textContent = "Resume";
         } else {
             // Resume the playback if it's paused
             Tone.Transport.start();
+            document.querySelector('.Light').style.background = "#50c878";  // Change light color to green
             this.textContent = "Pause";
         }
     } catch (error) {
@@ -138,6 +140,8 @@ document.getElementById("playAudio").addEventListener("click", async function ()
 
         // Start the transport
         Tone.Transport.start();
+        document.querySelector('.Light').style.background = "#50c878";  // Change light color to green to indicate audio is playing
+        
     } catch (error) {
         console.error("Error starting playback:", error);
     }
