@@ -1,7 +1,5 @@
 # Binary Synthesizer
-
-## Project Overview
-Our program takes in a text file, converts it from digital (binary) to analog (sound), and outputs the sound based on the binary patterns of the text file.
+This program takes in a text file, converts it from digital (binary) to analog (sound), and outputs the sound based on the binary patterns of the text file.
 
 ### Tech Stack
 HTML, CSS, [Tone.js](https://tonejs.github.io/)
@@ -13,11 +11,11 @@ HTML, CSS, [Tone.js](https://tonejs.github.io/)
 <br />
 
 ## Installation and Usage
-Clone the repository, and install tone
+1. Clone the repository, and install tone
 ```
 npm install tone   
 ```
-Run the project by opening the <b>front.html</b> file in a browser.
+2. Run the project by opening the <b>front.html</b> file in a browser.
 
 <br />
 
