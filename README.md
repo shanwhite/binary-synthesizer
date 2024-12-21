@@ -3,12 +3,19 @@
 ## Project Overview
 Our program takes in a text file, converts it from digital (binary) to analog (sound), and outputs the sound based on the binary patterns of the text file.
 
-## Inspiration
+### Tech Stack
+HTML, CSS, [Tone.js](https://tonejs.github.io/)
+
+### Inspiration
 * [Tristan Perich's 1-Bit Symphony](https://tristanperich.bandcamp.com/album/1-bit-symphony)
 * [Bytebeats](https://greggman.com/downloads/examples/html5bytebeat/html5bytebeat.html)
 
 ## Installation and Usage
-Download the code as a ZIP, then extract it and open the front.html file in a browser.
+Clone the repository, and install tone
+```
+npm install tone   
+```
+Run the project by opening the <b>front.html</b> file in a browser.
 
 ## UI Design
 ![start screen](readme-assets/start-screen.png)
@@ -27,3 +34,9 @@ Download the code as a ZIP, then extract it and open the front.html file in a br
 <p align="center">
     When playing through the code
 </p>
+
+## Authors
+[Sam McGrath](https://github.com/sammcg04)
+[Ashley Macaspac](https://github.com/kate-ash21)
+[Khate Castelo](https://github.com/khatington)
+[Shannen White](https://github.com/shanwhite)

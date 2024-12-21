@@ -40,6 +40,7 @@ body {
     justify-content: flex-start;
     border: 10px solid rgb(0, 17, 198);
     overflow-y: auto;  /* Enable vertical scrolling */
+    scrollbar-color: rgb(186, 186, 186) rgb(14,17,17); /* color, bg color */
     padding: 10px;
     box-sizing: border-box; 
     color: white;
