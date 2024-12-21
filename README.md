@@ -10,12 +10,16 @@ HTML, CSS, [Tone.js](https://tonejs.github.io/)
 * [Tristan Perich's 1-Bit Symphony](https://tristanperich.bandcamp.com/album/1-bit-symphony)
 * [Bytebeats](https://greggman.com/downloads/examples/html5bytebeat/html5bytebeat.html)
 
+<br />
+
 ## Installation and Usage
 Clone the repository, and install tone
 ```
 npm install tone   
 ```
 Run the project by opening the <b>front.html</b> file in a browser.
+
+<br />
 
 ## UI Design
 ![start screen](readme-assets/start-screen.png)
@@ -35,8 +39,10 @@ Run the project by opening the <b>front.html</b> file in a browser.
     When playing through the code
 </p>
 
+<br />
+
 ## Authors
-[Sam McGrath](https://github.com/sammcg04)
-[Ashley Macaspac](https://github.com/kate-ash21)
-[Khate Castelo](https://github.com/khatington)
-[Shannen White](https://github.com/shanwhite)
+[Sam](https://github.com/sammcg04)<br />
+[Ash](https://github.com/kate-ash21)<br />
+[Khate](https://github.com/khatington)<br />
+[Shan](https://github.com/shanwhite)<br />
