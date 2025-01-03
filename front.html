@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Binary Synthesizer</title>
+    <link rel="stylesheet" href="front.css" />
+  </head>
+  <body>
+    <div class="Wrapper">
+      <!-- Indicator -->
+      <div class="Container">
+        <div class="Light"></div>
+      </div>
+
+      <!-- What appears on the screen -->
+      <div class="Screen" id="output">
+        <div class="Message">No file is being played right now</div>
+      </div>
+
+      <div class="Container_2">
+        <div class="Title">BINARY SYNTHESIZER</div>
+      </div>
+
+      <!-- File Input and Trigger Button -->
+      <div class="Container_3">
+        <input type="file" id="fileInput" style="display: none;" />
+        <button class="Input" id="fileInputButton">INPUT FILE</button>
+      </div>
+
+      <!-- Buttons -->
+      <div class="Button_container">
+        <!-- Play Button -->
+        <div class="Play-container">
+          <div class="Play">PLAY</div>
+          <button class="Play-button" id="playAudio" aria-label="Play">
+            <div class="Triangle"></div>
+          </button>
+        </div>
+
+        <!-- Stop Button -->
+        <div class="Stop-container">
+          <div class="Stop">STOP</div>
+          <button class="Stop-button" id="stopAudio" aria-label="Stop">
+            <div class="Square"></div>
+          </button>
+        </div>
+
+        <!-- Tempo Button -->
+        <div class="Tempo-container">
+          <div class="Tempo">TEMPO</div>
+          <button class="Tempo-button" id="changeTempo">
+            <div class="text-Tempo">8n</div>
+          </button>
+        </div>
+
+        <!-- Waveform Button -->
+        <div class="Waveform-container">
+          <div class="Waveform">WAVEFORM</div>
+          <button class="Waveform-button" id="changeWaveform">
+            <div class="text-Waveform">sine</div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.39/Tone.min.js"></script>
+    <script src="scripts.js"></script>
+  </body>
+</html>

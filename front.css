@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap');
+
+body {
+    position: relative; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100vw; /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+}
+
+/* Affects all HTML pages */
+* {
+    font-family: "Jura", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+}
+
+.Wrapper {
+    background: black;
+    width: 700px;
+    height: 750px; 
+    border-radius: 5%;
+    position: fixed; 
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+}
+
+.Screen {
+    position: relative;
+    bottom: 8%; /* originally 5% */
+    width: 540px;
+    height: 480px; 
+    border-radius: 3%;
+    background: rgb(49, 87, 255); 
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border: 10px solid rgb(0, 17, 198);
+    overflow-y: auto;  /* Enable vertical scrolling */
+    scrollbar-color: rgb(186, 186, 186) rgb(14,17,17); /* color, bg color */
+    padding: 10px;
+    box-sizing: border-box; 
+    color: white;
+    font-size: 16px; /* Adjust font size */
+    line-height: 1.5; /* Add spacing between lines */
+    max-height: 400px; /* Limit the height of the binary content */
+}
+
+.Message {
+    color: white; 
+}
+
+/* For continuous flow of binary sequence */
+.Screen pre {
+    white-space: pre-wrap;  /* Allow text to wrap */
+    word-wrap: break-word;  /* Break long words (binary digits) to fit the width */
+    margin: 0;
+    font-family: monospace; /* Ensure proper alignment */
+    line-height: 1.4; /* Add a bit of spacing between lines */
+    word-break: break-word; /* Ensures the line breaks correctly */
+}
+
+/* Container for light */
+.Container {
+    position: absolute;
+    top: 40px;
+    width: 550px;
+    height: 40px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Light {
+    position: relative; 
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background: rgb(197, 56, 56); 
+}
+
+/* Container for "BINARY SYNTHESISER" */
+.Container_2 {
+    position: absolute;
+    bottom: 163px; /* originally 123px */
+    width: 550px;
+    height: 40px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Title {
+    position: absolute; 
+    font-size: 15px;
+    color: rgb(186, 186, 186); 
+    font-weight: 700;
+}
+
+/* Container for Input file button */
+.Container_3 {
+    position: absolute;
+    bottom: 123px; /* originally 83px */
+    width: 550px;
+    height: 40px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Input {
+    padding: 10px; 
+    width: 420px;
+    border: 2px solid rgb(130, 130, 130);
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    color: rgb(186, 186, 186); 
+}
+
+/* Container for play button and stop button */
+.Button_container {
+    position: absolute;
+    bottom: 24px; /* originally 3px */
+    width: 550px;
+    height: 80px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 5rem; 
+}
+
+.Play-container {
+    bottom: 30px; /* originally 3px */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Play font */
+.Play {
+    position: relative; 
+    font-size: 14px;
+    color: rgb(186, 186, 186); 
+    margin-bottom: 4px;
+}
+
+/* Play button */
+.Play-button {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    border: 2px solid rgb(186, 186, 186); 
+}
+
+/* Triangle */
+.Triangle {
+    width: 0;
+    height: 0;
+    left: 10px;
+    border-top: 7px solid transparent;
+    border-left: 14px solid rgb(186, 186, 186);
+    border-bottom: 7px solid transparent;
+}
+
+.Stop-container {
+    bottom: 10px; 
+    display: flex;
+    align-items: center; 
+    flex-direction: column;
+}
+
+/* Stop font */
+.Stop {
+    position: relative; 
+    font-size: 14px;
+    color: rgb(186, 186, 186); 
+    margin-bottom: 4px;
+}
+
+/* Stop button */
+.Stop-button { 
+    height: 35px;
+    width: 80px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    border: 2px solid rgb(186, 186, 186); 
+}
+
+/* Square */
+.Square {
+    height: 12px;
+    width: 12px;
+    background-color: rgb(186, 186, 186);
+}
+
+/* Tone stuff */
+.Tempo-container {
+    bottom: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Tempo {
+    position: relative; 
+    font-size: 14px;
+    color: rgb(186, 186, 186); 
+    margin-bottom: 4px;
+}
+
+.Tempo-button { 
+    height: 35px;
+    width: 60px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    border: 2px solid rgb(186, 186, 186); 
+}
+
+/* Waveform stuff */
+.Waveform-container {
+    bottom: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Waveform {
+    position: relative; 
+    font-size: 14px;
+    color: rgb(186, 186, 186); 
+    margin-bottom: 4px;
+}
+
+.Waveform-button { 
+    height: 35px;
+    width: 90px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    border: 2px solid rgb(186, 186, 186); 
+}
+
+.current-bit, .current-byte {
+    font-weight: bold;
+    color: rgb(255, 112, 103);
+}
