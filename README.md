@@ -40,7 +40,7 @@ npm install tone
 <br />
 
 ## Authors
-[Sam](https://github.com/sammcg04)<br />
-[Ash](https://github.com/kate-ash21)<br />
-[Khate](https://github.com/khatington)<br />
-[Shan](https://github.com/shanwhite)<br />
+[Sam McGrath](https://github.com/sammcg04)<br />
+[Ashley Macaspac](https://github.com/kate-ash21)<br />
+[Khate Castelo](https://github.com/khatington)<br />
+[Shannen White](https://github.com/shanwhite)<br />
