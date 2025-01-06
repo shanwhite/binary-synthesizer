@@ -109,39 +109,54 @@ document.getElementById("playAudio").addEventListener("click", async function ()
 
         // Start the playback loop
         Tone.Transport.scheduleRepeat(time => {
-            if (index < decimals.length) {
-                const value = decimals[index];
-                const note = Tone.Frequency(value % 88 + 21, "midi").toNote();
-                synth.triggerAttackRelease(note, currentTiming, time);
-
-                // Highlight the current bit by wrapping it in <span> with the 'current-bit' class
-                const bits = binaryArray[index].split('');
+            if (index < binaryArray.length) {
+                const binaryValue = binaryArray[index];
+                const decimalValue = decimals[index];
+        
+                // Skip playback for spaces (binary 00100000)
+                if (binaryValue === "00100000") {
+                } else {
+                    // Check if the decimal value is valid and within range
+                    if (isNaN(decimalValue) || decimalValue < 21 || decimalValue > 108) {
+                        console.error(`Invalid decimal value: ${decimalValue}. Skipping this value.`);
+                    } else {
+                        // Play the note if it's a valid decimal value
+                        const note = Tone.Frequency(decimalValue % 88 + 21, "midi").toNote();
+                        synth.triggerAttackRelease(note, currentTiming, time);
+                    }
+                }
+        
+                // Highlight the current bit
+                const bits = binaryValue.split('');
                 const highlightedBit = bits.map((bit, i) => {
-                    if (i === 0) {
-                        // Highlight the current bit (first one in this byte for simplicity)
+                    if (i === 0) { 
                         return `<span class="current-bit">${bit}</span>`;
                     } else {
                         return bit;
                     }
                 }).join('');
-                
-                // Highlight the current byte
-                const highlightedByte = `<span class="current-byte">${bits.join('')}</span>`;
-
+        
                 // Update the output to reflect the bold current bit
-                // Change ${highlightedBit} to ${highlightedByte} if you want to highlight the byte instead
                 outputDiv.innerHTML = `<pre>${binaryArray.slice(0, index).join(' ')} ${highlightedBit} ${binaryArray.slice(index + 1).join(' ')}</pre>`;
-
+        
                 index++;
             } else {
+                // Stop the transport and release the synth to prevent hanging notes
                 Tone.Transport.stop();
+                Tone.Transport.cancel();
+                synth.triggerRelease();
+                Tone.Transport.clear();
+        
+                console.log("Playback finished and stopped.");
             }
         }, currentTiming);
-
+        
         // Start the transport
         Tone.Transport.start();
         document.querySelector('.Light').style.background = "#50c878";  // Change light color to green to indicate audio is playing
         document.getElementById("stopAudio").textContent = "Pause";
+        
+        
     } catch (error) {
         console.error("Error starting playback:", error);
     }
