@@ -120,6 +120,7 @@ document.getElementById("playAudio").addEventListener("click", async function ()
                     if (currentTimingIndex !== newTimingIndex) {
                         currentTimingIndex = newTimingIndex;
                         console.log(`Tempo changed to ${noteTimings[currentTimingIndex]} based on binary ${binaryValue}`);
+                        document.getElementById("changeTempo").textContent = `${newTimingIndex}`;
         
                         // Stop and re-schedule the playback loop
                         Tone.Transport.cancel();
@@ -139,6 +140,7 @@ document.getElementById("playAudio").addEventListener("click", async function ()
                     if (synth.oscillator.type !== newWaveform) {
                         synth.oscillator.type = newWaveform; // Update the waveform
                         console.log(`Waveform changed to ${newWaveform} based on binary ${binaryValue}`);
+                        document.getElementById("changeWaveform").textContent = `${newWaveform}`;
                     }
                 }
 
