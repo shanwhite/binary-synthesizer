@@ -94,14 +94,7 @@ document.getElementById("playAudio").addEventListener("click", async function ()
         // Reset the index to start from the beginning
         let index = 0;
 
-        const currentWaveform = waveforms[currentWaveformIndex];
-        const synth = new Tone.Synth({
-            oscillator: {
-                type: currentWaveform
-            }
-        }).toDestination();
-
-        const currentTiming = noteTimings[currentTimingIndex];
+        const synth = new Tone.Synth().toDestination();
 
         // Clear any previous transport or scheduled events
         Tone.Transport.stop();
@@ -112,33 +105,67 @@ document.getElementById("playAudio").addEventListener("click", async function ()
             if (index < binaryArray.length) {
                 const binaryValue = binaryArray[index];
                 const decimalValue = decimals[index];
+
+
+                //TEMPO CHANGE NOT WORKING YET
+                // Handle tempo change based on binary values for 2, 4, 8, 16
+                const tempoBinaries = {
+                    "00000010": 0, // Binary for 2
+                    "00000100": 1, // Binary for 4
+                    "00000110": 2, // Binary for 6
+                    "00001000": 3  // Binary for 8
+                };
+                if (tempoBinaries[binaryValue] !== undefined) {
+                    const newTimingIndex = tempoBinaries[binaryValue];
+                    if (currentTimingIndex !== newTimingIndex) {
+                        currentTimingIndex = newTimingIndex;
+                        console.log(`Tempo changed to ${noteTimings[currentTimingIndex]} based on binary ${binaryValue}`);
         
-                // Skip playback for spaces (binary 00100000)
-                if (binaryValue === "00100000") {
-                } else {
-                    // Check if the decimal value is valid and within range
-                    if (isNaN(decimalValue) || decimalValue < 21 || decimalValue > 108) {
-                        console.error(`Invalid decimal value: ${decimalValue}. Skipping this value.`);
-                    } else {
-                        // Play the note if it's a valid decimal value
-                        const note = Tone.Frequency(decimalValue % 88 + 21, "midi").toNote();
-                        synth.triggerAttackRelease(note, currentTiming, time);
+                        // Stop and re-schedule the playback loop
+                        Tone.Transport.cancel();
+                        Tone.Transport.scheduleRepeat(playbackLoop, noteTimings[currentTimingIndex]);
                     }
                 }
-        
+
+                // Handle waveform change based on binary values for '!', '?', '.', ','
+                const waveformBinaries = {
+                    "00100001": "sine",     // Binary for '!'
+                    "00111111": "square",   // Binary for '?'
+                    "00101110": "triangle", // Binary for '.'
+                    "00101100": "sawtooth"  // Binary for ','
+                };
+                if (waveformBinaries[binaryValue]) {
+                    const newWaveform = waveformBinaries[binaryValue];
+                    if (synth.oscillator.type !== newWaveform) {
+                        synth.oscillator.type = newWaveform; // Update the waveform
+                        console.log(`Waveform changed to ${newWaveform} based on binary ${binaryValue}`);
+                    }
+                }
+
+                // Skip playback for spaces (binary 00100000)
+                if (binaryValue === "00100000") {
+                    // Do nothing for spaces
+                } else {
+                    // Check if the decimal value is valid and within range
+                    if (!isNaN(decimalValue) && decimalValue >= 21 && decimalValue <= 108) {
+                        const note = Tone.Frequency(decimalValue % 88 + 21, "midi").toNote();
+                        synth.triggerAttackRelease(note, noteTimings[currentTimingIndex], time);
+                    }
+                }
+
                 // Highlight the current bit
                 const bits = binaryValue.split('');
                 const highlightedBit = bits.map((bit, i) => {
-                    if (i === 0) { 
+                    if (i === 0) {
                         return `<span class="current-bit">${bit}</span>`;
                     } else {
                         return bit;
                     }
                 }).join('');
-        
+
                 // Update the output to reflect the bold current bit
                 outputDiv.innerHTML = `<pre>${binaryArray.slice(0, index).join(' ')} ${highlightedBit} ${binaryArray.slice(index + 1).join(' ')}</pre>`;
-        
+
                 index++;
             } else {
                 // Stop the transport and release the synth to prevent hanging notes
@@ -146,17 +173,16 @@ document.getElementById("playAudio").addEventListener("click", async function ()
                 Tone.Transport.cancel();
                 synth.triggerRelease();
                 Tone.Transport.clear();
-        
+
                 console.log("Playback finished and stopped.");
             }
-        }, currentTiming);
-        
+        }, noteTimings[currentTimingIndex]);
+
         // Start the transport
         Tone.Transport.start();
         document.querySelector('.Light').style.background = "#50c878";  // Change light color to green to indicate audio is playing
         document.getElementById("stopAudio").textContent = "Pause";
-        
-        
+
     } catch (error) {
         console.error("Error starting playback:", error);
     }
